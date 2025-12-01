@@ -1,0 +1,16 @@
+# Abaikan folder library yang berat
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Abaikan file environment (Password database, dll)
+.env
+client/.env
+server/.env
+
+# Abaikan file sistem/sampah
+.DS_Store
+dist/
+build/
+coverage/
+.vscode/
