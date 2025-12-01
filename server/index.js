@@ -215,6 +215,12 @@ app.delete("/expenses/:id", async (req, res) => {
 // ==========================================
 // START SERVER
 // ==========================================
-app.listen(PORT, () => {
-  console.log(`Server berjalan di port ${PORT} 🚀`);
-});
+// Export untuk Vercel
+module.exports = app;
+
+// Jalankan server HANYA jika di Localhost (bukan di Vercel)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server berjalan di port ${PORT} 🚀`);
+  });
+}
