@@ -15,10 +15,10 @@ const Dashboard = () => {
         const token = localStorage.getItem("finance_token");
 
         const [salaryRes, expenseRes, userRes] = await Promise.all([
-          axios.get("http://localhost:5000/salary"),
-          axios.get("http://localhost:5000/expenses"),
+          axios.get("https://finance-os-neon.vercel.app/salary"),
+          axios.get("https://finance-os-neon.vercel.app/expenses"),
           axios
-            .get("http://localhost:5000/auth/me", {
+            .get("https://finance-os-neon.vercel.app/auth/me", {
               headers: { Authorization: `Bearer ${token}` },
             })
             .catch(() => ({ data: { target_amount: 0 } })),

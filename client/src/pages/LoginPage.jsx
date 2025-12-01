@@ -15,7 +15,7 @@ const LoginPage = () => {
     setLoading(true);
     setError("");
 
-    const url = isLoginMode ? "http://localhost:5000/auth/login" : "http://localhost:5000/auth/register";
+    const url = isLoginMode ? "https://finance-os-neon.vercel.app/auth/login" : "https://finance-os-neon.vercel.app/auth/register";
 
     try {
       const response = await axios.post(url, formData);

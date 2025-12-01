@@ -15,7 +15,7 @@ const IncomePage = () => {
 
   const fetchSalaries = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/salary");
+      const response = await axios.get("https://finance-os-neon.vercel.app/salary");
       setSalaries(response.data);
     } catch (error) {
       console.error(error);
@@ -49,10 +49,10 @@ const IncomePage = () => {
     setLoading(true);
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/salary/${editId}`, formData);
+        await axios.put(`https://finance-os-neon.vercel.app/salary/${editId}`, formData);
         alert("✅ Data Berhasil Diupdate!");
       } else {
-        await axios.post("http://localhost:5000/salary", formData);
+        await axios.post("https://finance-os-neon.vercel.app/salary", formData);
         alert("✅ Data Berhasil Disimpan!");
       }
       setFormData({ amount_usdt: "", transaction_date: "", description: "" });
@@ -68,7 +68,7 @@ const IncomePage = () => {
 
   const handleDelete = async (id) => {
     if (confirm("Yakin ingin menghapus data ini?")) {
-      await axios.delete(`http://localhost:5000/salary/${id}`);
+      await axios.delete(`https://finance-os-neon.vercel.app/salary/${id}`);
       fetchSalaries();
     }
   };

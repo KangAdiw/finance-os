@@ -20,7 +20,7 @@ const ExpensesPage = () => {
 
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/expenses");
+      const response = await axios.get("https://finance-os-neon.vercel.app/expenses");
       setExpenses(response.data);
     } catch (error) {
       console.error("Gagal ambil data:", error);
@@ -53,7 +53,7 @@ const ExpensesPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/expenses", formData);
+      await axios.post("https://finance-os-neon.vercel.app/expenses", formData);
       alert("✅ Pengeluaran Berhasil Disimpan!");
       setFormData({ amount_idr: "", category: "", expense_date: "", description: "" });
       setIsModalOpen(false);
@@ -67,7 +67,7 @@ const ExpensesPage = () => {
 
   const handleDelete = async (id) => {
     if (confirm("Yakin ingin menghapus data pengeluaran ini?")) {
-      await axios.delete(`http://localhost:5000/expenses/${id}`);
+      await axios.delete(`https://finance-os-neon.vercel.app/expenses/${id}`);
       fetchExpenses();
     }
   };

@@ -18,7 +18,7 @@ const SettingsPage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/auth/me", {
+        const response = await axios.get("https://finance-os-neon.vercel.app/auth/me", {
           headers: { Authorization: `Bearer ${token}` }, // Kirim token ke backend
         });
         setProfileName(response.data.name);
@@ -40,7 +40,7 @@ const SettingsPage = () => {
     setIsSaved(false);
 
     try {
-      await axios.put("http://localhost:5000/auth/update", { name: profileName, target_amount: targetAmount }, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.put("https://finance-os-neon.vercel.app/auth/update", { name: profileName, target_amount: targetAmount }, { headers: { Authorization: `Bearer ${token}` } });
 
       // Update juga nama di localStorage biar Sidebar langsung berubah (opsional, biar cepet)
       localStorage.setItem("finance_name", profileName);
